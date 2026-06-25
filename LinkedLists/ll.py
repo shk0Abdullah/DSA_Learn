@@ -28,9 +28,22 @@ class LL:
             except StopIteration:
                 break
     # now we are able to use the stream logic for search to delete or insert nice 
-    def deleteAtPoint(self, data):
-        ...
-    
+    def deleteAtPoint(self, data, updatedData):
+        stream  = self.traverse() 
+        value = next(stream)
+        while True:
+            try:
+                if data == value:
+                    print("Found")
+                    self.head.data = updatedData
+                    print("Updated")
+                    break
+                else:
+                    value = next(stream)
+            except Exception as e: 
+                print("NOT FOUND", e)
+                break
+
     def search (self, data):
         stream = self.traverse() # -> generator 
         value  = next(stream)
@@ -65,3 +78,6 @@ obj1.search(23)
 obj1.search(21)
 obj1.search(1)
 
+print("DEL")
+obj1.deleteAtPoint(11,10)
+obj1.streamTraverse()
