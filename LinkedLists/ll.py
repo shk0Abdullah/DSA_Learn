@@ -83,7 +83,14 @@ class LL:
                 print(i)
                 break
 
-        
+    def Length(self):
+        l = 0 
+        pointer = self.head
+        print(self.head)
+        while pointer:
+            l = l+1 
+            pointer = pointer.next
+        print(l)
 
 
 obj1 = LL()
@@ -104,8 +111,10 @@ obj1.ChangeAtPoint(11,10)
 obj1.streamTraverse()
 
 print("DEL")
-obj1.DeleteAtPoint(21)
-obj1.DeleteAtPoint(10)
-obj1.DeleteAtPoint(23)
+# obj1.DeleteAtPoint(21)
+# obj1.DeleteAtPoint(10)
+# obj1.DeleteAtPoint(23)
 
 obj1.streamTraverse()
+
+obj1.Length()
